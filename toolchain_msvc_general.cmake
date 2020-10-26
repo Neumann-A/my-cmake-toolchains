@@ -54,10 +54,9 @@ set(MSVC_WARNINGS
   /w14906 # string literal cast to 'LPWSTR'
   /w14928 # illegal copy-initialization; more than one user-defined conversion has been implicitly applied
 )
-
 add_compile_options(${MSVC_WARNINGS})
 add_compile_options(/utf-8)
-add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+add_definitions(-D_CRT_SECURE_NO_WARNINGS -D_HAS_DEPRECATED_RESULT_OF)
 
 if(DEFINED _VCPKG_INSTALLED_DIR 
    AND EXISTS "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include" 

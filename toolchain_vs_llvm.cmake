@@ -14,7 +14,7 @@ set(CLANG_WARNINGS
     -Woverloaded-virtual # warn if you overload (not override) a virtual function
     -Wpedantic # warn if non-standard C++ is used
     -Wconversion # warn on type conversions that may lose data
-    -Wsign-conversion # warn on sign conversions
+    #-Wsign-conversion # warn on sign conversions
     -Wnull-dereference # warn if a null dereference is detected
     -Wdouble-promotion # warn if float is implicit promoted to double
     -Wformat=2 # warn on security issues around functions that format output (ie printf)
@@ -45,12 +45,17 @@ set(CLANG_SILENCED
     -Wno-unused-template
     -Wno-anon-enum-enum-conversion
     -Wno-c99-extensions
+    -Wno-deprecated-anon-enum-enum-conversion   #too noisy with eigen3
+    -Wno-deprecated-enum-compare                #too noisy with eigen3
+    -Wno-unused-parameter                       #a bit noisy
+    -Wno-extra-semi-stmt                        # too noisy
+    -Wno-sign-conversion                        # too noisy
 )
 
 add_compile_options(${CLANG_WARNINGS})
 add_compile_options(${CLANG_SILENCED})
 add_compile_options(-fcolor-diagnostics)
-add_compile_options(/clang:-flto=full)
+#add_compile_options(/clang:-flto=full)
 #add_compile_options(-v)
 if(DEFINED _VCPKG_INSTALLED_DIR AND EXISTS "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include")
     add_compile_options("/clang:--system-header-prefix=${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include")

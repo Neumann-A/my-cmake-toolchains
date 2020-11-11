@@ -1,6 +1,5 @@
 include_guard(GLOBAL)
 
-include_guard(GLOBAL)
 message(STATUS "Loading clang-cl using ninja toolchain!")
 if (DEFINED ENV{ProgramW6432})
     file(TO_CMAKE_PATH "$ENV{ProgramW6432}" PROG_ROOT)

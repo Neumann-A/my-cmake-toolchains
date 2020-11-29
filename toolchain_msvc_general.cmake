@@ -14,6 +14,7 @@ string(REGEX REPLACE "(/|-)MDd?" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 string(REGEX REPLACE "(/|-)MDd?" "" CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
 
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:DEBUG>:Debug>$<IF:$<BOOL:${WITH_STATIC_CRT}>,,DLL>")
+set(CMAKE_CXX_FLAGS_RELEASE "/ZI")
 
 if(General_FAST_MATH)
     add_compile_options(/fp:fast /fp:except-)

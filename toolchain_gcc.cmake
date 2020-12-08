@@ -1,5 +1,6 @@
 
 include_guard(GLOBAL)
+message(STATUS "Loading GCC toolchain!")
 #Warnings from https://github.com/lefticus/cppbestpractices/blob/master/02-Use_the_Tools_Available.md
 set(CLANG_GCC_WARNINGS
     -Wall
@@ -21,26 +22,26 @@ set(CLANG_GCC_WARNINGS
 )
 
 set(GCC_SILENCED 
-    -Wno-c++98-compat
-    -Wno-c++98-compat-pedantic
-    -Wno-documentation-deprecated-sync
+    #-Wno-c++98-compat
+    #-Wno-c++98-compat-pedantic
+    #-Wno-documentation-deprecated-sync
     -Wno-undef
-    -Wno-documentation
-    -Wno-global-constructors
-    -Wno-exit-time-destructors
-    -Wno-documentation-unknown-command
+    #-Wno-documentation
+    #-Wno-global-constructors
+    #-Wno-exit-time-destructors
+    #-Wno-documentation-unknown-command
     -Wno-zero-as-null-pointer-constant
     -Wno-old-style-cast
     -Wno-switch-enum
     -Wno-cast-align
-    -Wno-covered-switch-default
-    -Wno-deprecated-dynamic-exception-spec
+    #-Wno-covered-switch-default
+    #-Wno-deprecated-dynamic-exception-spec
     -Wno-date-time
-    -Wno-language-extension-token
+    #-Wno-language-extension-token
     -Wno-extra-semi
-    -Wno-reserved-id-macro
+    #-Wno-reserved-id-macro
     -Wno-missing-noreturn
-    -Wno-unused-template
+    #-Wno-unused-template
 )
 list(APPEND CLANG_GCC_WARNINGS
       -Wmisleading-indentation # warn if identation implies blocks where blocks do not exist
@@ -50,5 +51,6 @@ list(APPEND CLANG_GCC_WARNINGS
       -Wuseless-cast # warn if you perform a cast to the same type
 )
 
+add_compile_options(-fpermissive)
 add_compile_options(${CLANG_GCC_WARNINGS})
 add_compile_options(${GCC_SILENCED})

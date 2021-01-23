@@ -47,6 +47,9 @@ set(CLANG_SILENCED
     -Wno-unused-template
 )
 
+string(APPEND CMAKE_C_FLAGS_INIT " -fpermissive -fPIC")
+string(APPEND CMAKE_CXX_FLAGS_INIT " -fpermissive -fPIC")
+
 add_compile_options(${CLANG_WARNINGS})
 add_compile_options(${CLANG_SILENCED})
 add_compile_options(-fcolor-diagnostics)

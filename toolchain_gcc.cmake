@@ -51,6 +51,8 @@ list(APPEND CLANG_GCC_WARNINGS
       -Wuseless-cast # warn if you perform a cast to the same type
 )
 
-add_compile_options(-fpermissive)
+string(APPEND CMAKE_C_FLAGS_INIT " -fpermissive -fPIC")
+string(APPEND CMAKE_CXX_FLAGS_INIT " -fpermissive -fPIC")
+
 add_compile_options(${CLANG_GCC_WARNINGS})
 add_compile_options(${GCC_SILENCED})

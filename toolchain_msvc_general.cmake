@@ -62,6 +62,6 @@ add_definitions(-D_CRT_SECURE_NO_WARNINGS -D_HAS_DEPRECATED_RESULT_OF)
 if(DEFINED _VCPKG_INSTALLED_DIR 
    AND EXISTS "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include" 
    AND CMAKE_CXX_COMPILER_ID STREQUAL MSVC)
-    add_compile_options(/experimental:external /external:I "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include")
+    #add_compile_options(/experimental:external /external:I "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include")
 endif()
 #add_compile_options("$<$<NOT:$<CONFIG:DEBUG>>:d>")

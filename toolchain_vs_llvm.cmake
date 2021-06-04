@@ -59,7 +59,11 @@ add_compile_options(-fcolor-diagnostics)
 #add_compile_options(/clang:-flto=full)
 #add_compile_options(-v)
 if(DEFINED _VCPKG_INSTALLED_DIR AND EXISTS "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include")
-    add_compile_options("/clang:--system-header-prefix=${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include")
+    # Nothing works
+    #add_compile_options("/clang:--system-header-prefix ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include")
+    #add_compile_options("/clang:-isystem ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include")
+    #add_compile_options(-Xclang "-isystem-prefix ${VCPKG_TARGET_TRIPLET}\\include")
+    #add_compile_options(-Xclang ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include/)
 endif()
 
 #add_compile_options(-v)

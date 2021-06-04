@@ -37,6 +37,7 @@ endif()
 if(NOT DEFINED CMAKE_NM)
     set(CMAKE_NM "${LLVM_BIN_DIR}/llvm-nm.exe")
 endif()
+set(CMAKE_MT "mt.exe")
 
 include("${CMAKE_CURRENT_LIST_DIR}/toolchain_msvc_general.cmake")
 include("${CMAKE_CURRENT_LIST_DIR}/toolchain_vs_llvm.cmake")

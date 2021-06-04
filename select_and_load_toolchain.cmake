@@ -11,7 +11,7 @@ message(STATUS "Selecting toolchain")
 cmake_print_variables(CMAKE_SYSTEM_NAME CMAKE_C_COMPILER CMAKE_GENERATOR CMAKE_GENERATOR_TOOLSET)
 
 if(CMAKE_GENERATOR STREQUAL "Ninja" AND NOT DEFINED VCPKG_CHAINLOAD_TOOLCHAIN_FILE)
-    if(CMAKE_SYSTEM_NAME MATCHES "Windows")
+    if(CMAKE_SYSTEM_NAME MATCHES "Windows" OR WIN32)
         set(${TOOLCHAIN_VAR} "${CMAKE_CURRENT_LIST_DIR}/toolchain_ninja_clang-cl.cmake" CACHE PATH "Used toolchain file beside VCPKG toolchain")
     elseif(UNIX AND NOT (CYGWIN OR APPLE) AND CMAKE_C_COMPILER MATCHES "clang")
         set(${TOOLCHAIN_VAR} "${CMAKE_CURRENT_LIST_DIR}/toolchain_ninja_clang++.cmake" CACHE PATH "Used toolchain file beside VCPKG toolchain")
@@ -28,5 +28,5 @@ elseif(CMAKE_GENERATOR MATCHES "Visual Studio" AND NOT DEFINED VCPKG_CHAINLOAD_T
         set(${TOOLCHAIN_VAR} "${CMAKE_CURRENT_LIST_DIR}/toolchain_msvc_general.cmake" CACHE PATH "Used toolchain file beside VCPKG toolchain")
     endif()
 endif()
-
+set(${TOOLCHAIN_VAR} $CACHE{${TOOLCHAIN_VAR}})
 cmake_print_variables(${TOOLCHAIN_VAR})

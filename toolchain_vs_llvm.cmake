@@ -50,6 +50,7 @@ set(CLANG_SILENCED
     -Wno-unused-parameter                       #a bit noisy
     -Wno-extra-semi-stmt                        # too noisy
     -Wno-sign-conversion                        # too noisy
+    -Wno-return-std-move-in-c++11
 )
 
 add_compile_options(${CLANG_WARNINGS})

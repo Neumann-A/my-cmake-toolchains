@@ -69,7 +69,8 @@ add_compile_options("-m64")
 #add_compile_options("-flto=full") # does not work
 #add_compile_options("-funroll-loops")
 #add_compile_options("-ffp-contract=fast")
-#add_compile_options("-ffast-math") # This ignores std::inf and std::nan checks
+add_compile_options("-ffast-math") # This ignores std::inf and std::nan checks
+add_compile_options("-fno-finite-math-only") # This reenables std::inf and std::nan checks
 add_compile_options("-g")
 #add_compile_options("-nostdinc")
 #add_compile_options("-isystem/usr/include/c++/4.9")

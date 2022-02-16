@@ -50,13 +50,12 @@ set(CLANG_SILENCED
     -Wno-unused-parameter                       #a bit noisy
     -Wno-extra-semi-stmt                        # too noisy
     -Wno-sign-conversion                        # too noisy
-    -Wno-return-std-move-in-c++11
 )
 
 add_compile_options(${CLANG_WARNINGS})
 add_compile_options(${CLANG_SILENCED})
 add_compile_options(-fcolor-diagnostics)
-#add_compile_options(-ftime-trace)
+add_compile_options(-ftime-trace)
 #add_compile_options(/clang:-flto=full)
 #add_compile_options(-v)
 if(DEFINED _VCPKG_INSTALLED_DIR AND EXISTS "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include")
@@ -66,5 +65,3 @@ if(DEFINED _VCPKG_INSTALLED_DIR AND EXISTS "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARG
     #add_compile_options(-Xclang "-isystem-prefix ${VCPKG_TARGET_TRIPLET}\\include")
     #add_compile_options(-Xclang ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include/)
 endif()
-
-#add_compile_options(-v)

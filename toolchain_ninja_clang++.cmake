@@ -47,9 +47,6 @@ set(CLANG_SILENCED
     -Wno-unused-template
 )
 
-string(APPEND CMAKE_C_FLAGS_INIT " -fpermissive -fPIC")
-string(APPEND CMAKE_CXX_FLAGS_INIT " -fpermissive -fPIC")
-
 add_compile_options(${CLANG_WARNINGS})
 add_compile_options(${CLANG_SILENCED})
 add_compile_options(-fcolor-diagnostics)
@@ -87,10 +84,6 @@ if(DEFINED _VCPKG_INSTALLED_DIR AND EXISTS "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARG
 endif()
 
 if(UNIX)
-    string(APPEND CMAKE_C_FLAGS_INIT " -fpermissive -fPIC")
-    string(APPEND CMAKE_CXX_FLAGS_INIT " -fpermissive -fPIC")
-    string(APPEND CMAKE_C_FLAGS_DEBUG_INIT " -fpermissive -fPIC")
-    string(APPEND CMAKE_CXX_FLAGS_DEBUG_INIT " -fpermissive -fPIC")
-    string(APPEND CMAKE_C_FLAGS_RELEASE_INIT " -fpermissive -fPIC")
-    string(APPEND CMAKE_CXX_FLAGS_RELEASE_INIT " -fpermissive -fPIC")
+    string(APPEND CMAKE_C_FLAGS " -fpermissive -fPIC")
+    string(APPEND CMAKE_CXX_FLAGS " -fpermissive -fPIC")
 endif()

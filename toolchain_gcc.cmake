@@ -53,6 +53,8 @@ list(APPEND CLANG_GCC_WARNINGS
 
 string(APPEND CMAKE_C_FLAGS_INIT " -fpermissive -fPIC")
 string(APPEND CMAKE_CXX_FLAGS_INIT " -fpermissive -fPIC")
+string(APPEND CMAKE_STATIC_LINKER_FLAGS_INIT "-fPIC")
+string(APPEND CMAKE_SHARED_LINKER_FLAGS_INIT "-fPIC")
 
 add_compile_options(${CLANG_GCC_WARNINGS})
 add_compile_options(${GCC_SILENCED})

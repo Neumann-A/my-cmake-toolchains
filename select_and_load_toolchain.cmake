@@ -16,7 +16,7 @@ if(CMAKE_GENERATOR STREQUAL "Ninja" AND NOT DEFINED ${TOOLCHAIN_VAR})
         message(STATUS "Selecting ninja clang-cl toolchain")
         set(${TOOLCHAIN_VAR} "${CMAKE_CURRENT_LIST_DIR}/toolchain_ninja_clang-cl.cmake" CACHE PATH "Used toolchain file beside VCPKG toolchain")
     elseif(UNIX AND NOT (CYGWIN OR APPLE) AND 
-          ( (CMAKE_C_COMPILER_ID STREQUAL "Clang" OR CMAKE_C_COMPILER MATCHES "clang(\.exe)?$") 
+          ( (CMAKE_C_COMPILER_ID STREQUAL "Clang" OR CMAKE_C_COMPILER MATCHES "clang(\\\.exe)?$") 
           OR (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER MATCHES "clang++")))
         message(STATUS "Selecting ninja clang++ toolchain")
         set(${TOOLCHAIN_VAR} "${CMAKE_CURRENT_LIST_DIR}/toolchain_ninja_clang++.cmake" CACHE PATH "Used toolchain file beside VCPKG toolchain")

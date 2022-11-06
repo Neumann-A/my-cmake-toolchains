@@ -13,7 +13,7 @@ endforeach()
 string(REGEX REPLACE "(/|-)MDd?" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 string(REGEX REPLACE "(/|-)MDd?" "" CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
 
-set(CMAKE_CXX_FLAGS_RELEASE "/Z7")
+string(APPEND CMAKE_CXX_FLAGS_RELEASE " /Z7")
 
 if(General_FAST_MATH)
     add_compile_options(/fp:fast /fp:except-)
